@@ -2,7 +2,7 @@ import MapReduce
 import sys
 
 """
-Word Count Example in the Simple Python MapReduce Framework
+Matrix Multiplication Example in the Simple Python MapReduce Framework
 """
 
 mr = MapReduce.MapReduce()
@@ -11,8 +11,8 @@ mr = MapReduce.MapReduce()
 # Do not modify above this line
 
 def mapper(record):
-	# key: document identifier
-	# value: document contents
+	# key: element identifier
+	# value: value of matrix element
 	mat = record[0]
 	i = record[1]
 	j = record[2]
@@ -24,8 +24,8 @@ def mapper(record):
 			mr.emit_intermediate((k,j),(i,val))	# I would have had a separate for loop for this if the no. of rows in A was different than no. of cols in B
 	
 def reducer(key, list_of_values):
-	# key: word
-	# value: list of occurrence counts
+	# key: element identifier
+	# value: list of element values
 	idx = []
 	num = []
 	for val in list_of_values:
