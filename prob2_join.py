@@ -11,15 +11,15 @@ mr = MapReduce.MapReduce()
 # Do not modify above this line
 
 def mapper(record):
-	# key: Matrix row identifier
-	# value: matrix content
+	# key: join column id
+	# value: complete record
 	key = record[1]
 	value = record
 	mr.emit_intermediate(key, value)
 
 def reducer(key, list_of_values):
-	# key: matrix row identifier
-	# value: list of matrix contents
+	# key: join column id
+	# value: list of record with that id
 	table1 = []
 	table2 = []
 	for v in list_of_values:
