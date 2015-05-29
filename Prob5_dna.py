@@ -2,7 +2,7 @@ import MapReduce
 import sys
 
 """
-Word Count Example in the Simple Python MapReduce Framework
+DNA Sequence Example in the Simple Python MapReduce Framework
 """
 
 mr = MapReduce.MapReduce()
@@ -11,8 +11,8 @@ mr = MapReduce.MapReduce()
 # Do not modify above this line
 
 def mapper(record):
-	# key: document identifier
-	# value: document contents
+	# key: Sequence id
+	# value: Nucleotide string
 	key = record[1]
 	mr.emit_intermediate(key[0:(len(key)-10)], 1)
 
