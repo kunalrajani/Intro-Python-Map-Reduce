@@ -2,7 +2,7 @@ import MapReduce
 import sys
 
 """
-Word Count Example in the Simple Python MapReduce Framework
+Matrix Join Example in the Simple Python MapReduce Framework
 """
 
 mr = MapReduce.MapReduce()
@@ -11,15 +11,15 @@ mr = MapReduce.MapReduce()
 # Do not modify above this line
 
 def mapper(record):
-	# key: document identifier
-	# value: document contents
+	# key: Matrix row identifier
+	# value: matrix content
 	key = record[1]
 	value = record
 	mr.emit_intermediate(key, value)
 
 def reducer(key, list_of_values):
-	# key: word
-	# value: list of occurrence counts
+	# key: matrix row identifier
+	# value: list of matrix contents
 	table1 = []
 	table2 = []
 	for v in list_of_values:
